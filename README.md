@@ -9,3 +9,4 @@ example: example.com example.com/bye
 
 Detailed description about the implementation will be available soon.
 
+<img width="1913" height="1078" alt="image" src="https://github.com/user-attachments/assets/4167b140-9260-4d15-9931-7cff968825a4" />
