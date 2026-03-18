@@ -27,7 +27,8 @@ pipeline {
                         
                         # 3. SSH into VPS to deploy Docker containers
                         ssh -o StrictHostKeyChecking=no \$VPS_USER@\$VPS_IP '''
-                            cd \$APP_DIR
+                            # Hardcode the directory path because remote shell doesn't have the Jenkins APP_DIR variable
+                            cd ~/node-app-deployment
                             
                             # Get the absolute path for Docker volume mounting
                             ABS_DIR=\$(pwd)
