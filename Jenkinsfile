@@ -26,8 +26,8 @@ pipeline {
                         scp -o StrictHostKeyChecking=no -r * \$VPS_USER@\$VPS_IP:\$APP_DIR/
                         
                         # 3. SSH into VPS to deploy Docker containers
-                        ssh -o StrictHostKeyChecking=no \$VPS_USER@\$VPS_IP '''
-                            # Hardcode the directory path because remote shell doesn't have the Jenkins APP_DIR variable
+                        ssh -o StrictHostKeyChecking=no \$VPS_USER@\$VPS_IP '
+                            # Hardcode the directory path because remote shell does not have the Jenkins APP_DIR variable
                             cd ~/node-app-deployment
                             
                             # Get the absolute path for Docker volume mounting
@@ -52,13 +52,14 @@ pipeline {
                                 --network my-app-network \\
                                 -v \$ABS_DIR/nginx.conf:/etc/nginx/nginx.conf:ro \\
                                 nginx:alpine
-                        '''
+                        '
                     """
                 }
             }
         }
     }
 }
+
 // pipeline {
 //     agent any
 
